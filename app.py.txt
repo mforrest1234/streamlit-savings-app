@@ -1,0 +1,12 @@
+import streamlit as st
+
+st.title("💰 Financial Savings Calculator")
+
+num_employees = st.number_input("Number of Employees", min_value=1, value=50)
+avg_salary = st.number_input("Average Salary per Employee ($)", min_value=0.0, value=60000.0, step=1000.0)
+improvement_pct = st.slider("Improvement (%)", min_value=0, max_value=100, value=10)
+
+total_savings = num_employees * avg_salary * (improvement_pct / 100)
+
+st.subheader("📈 Estimated Total Savings")
+st.metric(label="Total Savings", value=f"${total_savings:,.2f}")
